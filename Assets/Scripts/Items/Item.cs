@@ -16,7 +16,9 @@ public abstract class Item : MonoBehaviour {
 	// 	Player.getInstance().carryPickup(gameObject, e.getPoint());
 	// }
 
-	public abstract void invoke(Inventory invoker);
+	public abstract void beginInvoke(Inventory invoker);
+
+	public virtual void endInvoke(Inventory invoker) {}
 
     public virtual void onTake(Inventory taker) {
         transform.SetParent(taker.transform);
@@ -26,12 +28,14 @@ public abstract class Item : MonoBehaviour {
     public virtual void onDrop(Inventory taker) {
         transform.SetParent(null);
         gameObject.SetActive(true);
+		endInvoke(taker);
     }
 
     public virtual void onEquip(Inventory equipper) {
     }
 
     public virtual void onUnequip(Inventory equipper) {
+		endInvoke(equipper);
     }
 
     // protected virtual void trigger() {

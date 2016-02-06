@@ -93,7 +93,7 @@ public class Inventory : MonoBehaviour {
 
     public void useEquipped() {
 		if (inContext()) {
-			getItem(contextStack[0]).invoke(this);
+			getItem(contextStack[0]).beginInvoke(this);
 			return;
 		}
         if (selecting >= 0) {
@@ -101,10 +101,18 @@ public class Inventory : MonoBehaviour {
             mousePos = Vector3.zero;
 			return;
 		}
-        if (equipped == null)
-            return;
-        equipped.invoke(this);
+        if (equipped != null)
+            equipped.beginInvoke(this);
     }
+
+	public void stopUsingEquiped() {
+		if (inContext()) {
+			getItem(contextStack[0]).endInvoke(this);
+			return;
+		}
+		if (equipped != null)
+			equipped.endInvoke(this);
+	}
 
 	public void pushContext(System.Type contextItem) {
 		contextStack.Insert(0, contextItem);
