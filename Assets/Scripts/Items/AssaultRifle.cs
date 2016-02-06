@@ -44,8 +44,8 @@ public class AssaultRifle : Item {
 			if (cycleTime > 0)
 				cycleTime -= Time.deltaTime;
 			if (cycleTime <= 0) {
-				if (!shooting)
-					yield return new WaitUntil(() => shooting);
+				while(!shooting)
+					yield return new WaitForFixedUpdate();
 				shoot();
 			}
 			yield return new WaitForFixedUpdate();
