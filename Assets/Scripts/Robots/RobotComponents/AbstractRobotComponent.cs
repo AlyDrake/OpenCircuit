@@ -33,4 +33,8 @@ public abstract class AbstractRobotComponent : MonoBehaviour {
 	public void setAvailability(bool availability) {
 		isOccupied = !availability;
 	}
+
+	public virtual System.Type getComponentArchetype() {
+		return this.GetType();
+	}
 }
