@@ -89,6 +89,9 @@ public class Controls : MonoBehaviour {
 		if (Input.GetButtonDown("Use")) {
 			myPlayer.inventory.useEquipped();
 		}
+		if (Input.GetButtonUp("Use")) {
+			myPlayer.inventory.stopUsingEquiped();
+		}
 		if (Input.GetButtonDown ("Interact")) {
 			myPlayer.interactor.interact();
 		}

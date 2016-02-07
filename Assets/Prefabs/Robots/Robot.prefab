@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &433500
 Transform:
   m_ObjectHideFlags: 1
@@ -436,6 +436,10 @@ Prefab:
       propertyPath: targetSightedSound
       value: 
       objectReference: {fileID: 8300000, guid: 3ca3171149033ea4bbb64c22d29fa77f, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135778}

@@ -11,7 +11,7 @@ public class Rocks : Item {
 	public AudioClip collisionSound;
 	
 
-	public override void invoke(Inventory invoker) {
+	public override void beginInvoke(Inventory invoker) {
 		Transform cam = invoker.getPlayer().cam.transform;
         GameObject rock = new GameObject("Rock");
 		rock.transform.localPosition = cam.TransformPoint(releaseLocation);

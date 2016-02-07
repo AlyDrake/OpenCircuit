@@ -239,6 +239,8 @@ namespace Vox {
 //				if ((collider.hideFlags & HideFlags.HideInInspector) != 0)
 //					GameObject.DestroyImmediate(collider);
 //			}
+			vertexCount = 0;
+			triangleCount = 0;
 		}
 
 		public void generateRenderers() {

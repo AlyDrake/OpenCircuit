@@ -63,7 +63,7 @@ public class RobotController : MonoBehaviour, ISerializationCallbackReceiver {
 		AbstractRobotComponent [] compenents = GetComponentsInChildren<AbstractRobotComponent> ();
 
 		foreach (AbstractRobotComponent component in compenents) {
-			componentMap[component.GetType()] = component;
+			componentMap[component.getComponentArchetype()] = component;
 		}
 
 		foreach (Label location in locations) {
@@ -313,13 +313,13 @@ public class RobotController : MonoBehaviour, ISerializationCallbackReceiver {
 	private Dictionary<System.Type, int> getComponentUsageMap() {
 		Dictionary<System.Type, int> componentUsageMap = new Dictionary<System.Type, int>();
 		foreach (AbstractRobotComponent component in componentMap.Values) {
-			if (componentUsageMap.ContainsKey(component.GetType())) {
-				int count = componentUsageMap[component.GetType()];
+			if (componentUsageMap.ContainsKey(component.getComponentArchetype())) {
+				int count = componentUsageMap[component.getComponentArchetype()];
 				++count;
-				componentUsageMap[component.GetType()] = count;
+				componentUsageMap[component.getComponentArchetype()] = count;
 			}
 			else {
-				componentUsageMap[component.GetType()] = 1;
+				componentUsageMap[component.getComponentArchetype()] = 1;
 			}
 		}
 		return componentUsageMap;
